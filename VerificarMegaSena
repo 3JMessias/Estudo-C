@@ -1,0 +1,38 @@
+#include <stdio.h>
+/*
+Faça um program que verifique se o usuário ganhou na mega sena.
+ O  programa deve ter um vetor estático com os valores sorteados, caso o usuário acerte:
+ - 6 números, imprima: Ganhou tudo
+ - 5 números, imrpima: Ganhou quina
+ - 4 números, imrpima: Ganhou quadra
+ - 3 números, imprima: Quase
+ - Caso contrário, imprima: Não foi hoje.
+*/
+
+int main(){
+int sorteados[6] = {12,18,27,32,45,59};
+int verificar[6];
+int contAcertos=0;
+int i=0, j = 0,x;
+
+while(i<6){
+ printf("\nQual o %d' numero a ser verificado?\t",i+1);
+    scanf("%d",&verificar[i]);
+    i++;
+}
+for (x=0;x<6;x++){
+for (j=0;j<6;j++){
+    if (verificar[x] == sorteados[j]){
+        contAcertos = contAcertos + 1;
+    }
+}
+}
+printf("\nVoce Obteve %d Acertos.\n\n",contAcertos);
+
+if (contAcertos == 6) printf("Parabens Ganhou tudo\n\n");
+else if(contAcertos == 5) printf("Ganhou quina\n\n");
+else if(contAcertos == 4) printf("Ganhou Quadra\n\n");
+else printf("Nao foi hoje\n\n");
+
+return 0;
+}
