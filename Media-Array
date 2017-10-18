@@ -7,7 +7,7 @@ Caso a média seja maior que 60, imprima também 'Aprovado', caso contrário imp
 int main(){
 int N = 1;
 float notas[N], media = 0.0;
-int i,j;
+int i,j,soma = 0;
 float notaMinima = 60;
 
 printf("Quantas notas serao analisadas?\t");
@@ -16,12 +16,13 @@ printf("Quantas notas serao analisadas?\t");
 for(i=0;i<N;i++){
   printf("Entre com o valor da nota %d: ",i+1);
   scanf("%f",&notas[i]);
-  media = media + notas[i];
+  soma = soma + notas[i];
 }
-media = media / N;
+media = soma / N;
 for (j=0;j<N;j++){
   printf("\nA nota %d e %.2f",(j+1),notas[j]);
 }
+printf("\nA soma das notas e : %d",soma);
 printf("\nA media das notas e : %.2f",media);
 
 if (media>=notaMinima){
@@ -31,45 +32,6 @@ else{
   printf("\nReprovado");
 }
 printf("\n\n");
-
-return 0;
-}
-
-#include <stdio.h>
-/*
-Faça um program que verifique se o usuário ganhou na mega sena.
- O programa deve ter um vetor estático com os valores sorteados, caso o usuário acerte:
- - 6 números, imprima: Ganhou tudo
- - 5 números, imrpima: Ganhou quina
- - 4 números, imrpima: Ganhou quadra
- - 3 números, imprima: Quase
- - Caso contrário, imprima: Não foi hoje.
-*/
-
-int main(){
-int sorteados[6] = {12,18,27,32,45,59};
-int verificar[6];
-int contAcertos=0;
-int i=0, j = 0,x;
-
-while(i<6){
- printf("\nQual o %d' numero a ser verificado?\t",i+1);
-  scanf("%d",&verificar[i]);
-  i++;
-}
-for (x=0;x<6;x++){
-for (j=0;j<6;j++){
-  if (verificar[x] == sorteados[j]){
-  contAcertos = contAcertos + 1;
-  }
-}
-}
-printf("\nVoce Obteve %d Acertos.\n\n",contAcertos);
-
-if (contAcertos == 6) printf("Parabens Ganhou tudo\n\n");
-else if(contAcertos == 5) printf("Ganhou quina\n\n");
-else if(contAcertos == 4) printf("Ganhou Quadra\n\n");
-else printf("Nao foi hoje\n\n");
 
 return 0;
 }
